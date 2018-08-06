@@ -53,5 +53,9 @@ namespace HardwareShop.Models
             }
             return list;
         }
+        public Product find(string id,List<Product> listaProductos)
+        {
+            return listaProductos.Single(p => p.Id.Equals(id));
+        }
     }
 }
