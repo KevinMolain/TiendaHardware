@@ -12668,11 +12668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\HardwareShop\\HardwareShop.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\HardwareShop.csproj",
       "projectName": "HardwareShop",
-      "projectPath": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\HardwareShop\\HardwareShop.csproj",
+      "projectPath": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\HardwareShop.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\HardwareShop\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Documents\\GitHub\\TiendaHardware\\HardwareShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
