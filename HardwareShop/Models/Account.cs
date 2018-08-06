@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HardwareShop.Models
 {
-    public class Persona
+    public class Account
     {
     }
 }

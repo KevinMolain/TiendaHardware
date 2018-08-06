@@ -22,6 +22,12 @@ namespace HardwareShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            var builder = new ConfigurationBuilder()
+                                    .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+                                    .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            services.Add(new ServiceDescriptor(typeof(DataContext), new DataContext(configuration));
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +42,8 @@ namespace HardwareShop
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
 
             app.UseStaticFiles();
 
