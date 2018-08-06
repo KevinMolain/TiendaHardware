@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace HardwareShop.Models
 {
-    public class Producto
+    public class Product
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public double Precio { get; set; }
+        public string Tipo { get; set; }
     }
 }

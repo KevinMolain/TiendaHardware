@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,16 +44,14 @@ namespace HardwareShop.Models
                         list.Add(new Product()
                         {
                             Id = reader.GetInt32("id"),
-                            Usuario = reader.GetString("usuario"),
-                            Contraseña = reader.GetString("contraseña")
-
+                            Nombre = reader.GetString("nombre"),
+                            Precio = reader.GetDouble("precio"),
+                            Tipo = reader.GetString("tipo")
                         });
                     }
                 }
             }
-
             return list;
         }
     }
-}
 }

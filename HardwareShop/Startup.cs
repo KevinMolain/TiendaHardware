@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HardwareShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +27,7 @@ namespace HardwareShop
                                     .SetBasePath(System.IO.Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json");
             var configuration = builder.Build();
-            services.Add(new ServiceDescriptor(typeof(DataContext), new DataContext(configuration));
+            services.Add(new ServiceDescriptor(typeof(DataContextUsers), new DataContextUsers(configuration)));
             services.AddSession();
         }
 
