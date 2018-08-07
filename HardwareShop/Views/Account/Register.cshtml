@@ -25,9 +25,10 @@
         <div class="main-agileinfo">
             <div class="agileits-top">
                 <form action="#" method="post">
-                    <input class="text" type="text" name="Username" placeholder="Nombre de usuario" required="">
-                    <input class="text email" type="email" name="email" placeholder="Email" required="">
-                    <input class="text" type="password" name="password" placeholder="Contraseña" required="">
+                    <input class="text" type="text" name="nombre" placeholder="Nombre y Apellidos" required="">
+                    <input class="text email" type="email" name="correo" placeholder="Email" required="">
+                    <input class="text" type="text" name="usuario" placeholder="Nombre de usuario" required="">
+                    <input class="text" type="password" name="contraseña" placeholder="Contraseña" required="">
                     <input class="text w3lpass" type="password" name="password" placeholder="Confirmar contraseña" required="">
                     <div class="wthree-text">
                         <label class="anim">
@@ -36,7 +37,7 @@
                         </label>
                         <div class="clear"> </div>
                     </div>
-                    <input type="submit" value="SIGNUP">
+                    <input type="submit" value="add">
                 </form>
                 <p>Ya tienes una cuenta? <a href="@Url.Action("Login", "Account")"> Acceder</a></p>
             </div>
