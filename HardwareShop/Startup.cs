@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HardwareShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,12 @@ namespace HardwareShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            var builder = new ConfigurationBuilder()
+                                    .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+                                    .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            services.Add(new ServiceDescriptor(typeof(DataContextUsers), new DataContextUsers(configuration)));
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +43,8 @@ namespace HardwareShop
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
 
             app.UseStaticFiles();
 

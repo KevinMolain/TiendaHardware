@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace HardwareShop.Models
 {
-    public class Persona
+    public class Item
     {
+        public Product Product { get; set; }
+        public int Quantity { get; set; }
     }
 }
