@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HardwareShop.Controllers
 {
-    [Route("componente")]
-    public class ComponenteController : Controller
+    [Route("portatil")]
+    public class PortatilController : Controller
     {
         [Route("index")]
         public IActionResult Index()
         {
             DataContextProducts db = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
             List<Product> listaProductos = db.GetAllProducts();
-            
-            foreach(Product p in listaProductos)
+
+            foreach (Product p in listaProductos)
             {
-                if (p.Tipo.Contains("componente"))
+                if (p.Tipo.Contains("portatil"))
                 {
                     return View(model: p);
                 }
