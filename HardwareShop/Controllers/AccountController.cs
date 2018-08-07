@@ -20,6 +20,12 @@ namespace HardwareShop.Controllers
             return View("Login");
         }
 
+        [Route("register")]
+        public IActionResult Register()
+        {
+            return View("register");
+        }
+
         [Route("login")]
         [HttpPost]
         public IActionResult Login(string usuario, string contrasena)
