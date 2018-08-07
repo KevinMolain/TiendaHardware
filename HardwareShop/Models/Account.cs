@@ -8,6 +8,24 @@ namespace HardwareShop.Models
 {
     public class Account
     {
+        public Account(string nombre, string usuario, int id, string contraseña, string correo, int activado)
+        {
+            Nombre = nombre;
+            Usuario = usuario;
+            Id = id;
+            Contraseña = contraseña;
+            Correo = correo;
+            Activado = activado;
+        }
+        public Account(string nombre, string usuario, string contraseña, string correo, int activado)
+        {
+            Nombre = nombre;
+            Usuario = usuario;
+            Contraseña = contraseña;
+            Correo = correo;
+            Activado = activado;
+        }
+
         [Required]
         public string Nombre { get; set; }
         [Required]
@@ -22,5 +40,6 @@ namespace HardwareShop.Models
         public string Contraseña { get; set; }
         [Required]
         public string Correo { get; set; }
+        public int Activado { get; set; }
     }
 }

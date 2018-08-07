@@ -18,7 +18,7 @@ namespace HardwareShop.Controllers
 
             foreach (Product p in listaProductos)
             {
-                if (p.Tipo.Contains("Movil"))
+                if (p.Tipo.Contains("movil"))
                 {
                     return View(model: p);
                 }
