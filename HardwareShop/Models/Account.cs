@@ -17,6 +17,14 @@ namespace HardwareShop.Models
             Correo = correo;
             Activado = activado;
         }
+        public Account(string nombre, string usuario, string contraseña, string correo, int activado)
+        {
+            Nombre = nombre;
+            Usuario = usuario;
+            Contraseña = contraseña;
+            Correo = correo;
+            Activado = activado;
+        }
 
         [Required]
         public string Nombre { get; set; }

@@ -58,7 +58,15 @@ namespace HardwareShop.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand($"INSERT INTO usuarios VALUES ('{nuevaCuenta.Usuario}','{nuevaCuenta.Nombre}','{nuevaCuenta.Correo}','{nuevaCuenta.Contraseña}')");
+                MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO usuarios(`Usuario`,`Nombre`,`Correo`,`Contraseña`,`Activado`) VALUES ('{0}','{1}','{2}','{3}','{4}');",nuevaCuenta.Usuario,nuevaCuenta.Nombre,nuevaCuenta.Correo,nuevaCuenta.Contraseña,nuevaCuenta.Activado), conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                    }
+                    conn.Close();
+                }
             }
         }
     }

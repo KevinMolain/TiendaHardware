@@ -11,21 +11,29 @@
 </head>
 <body>
 
-    <h3>Login Page</h3>
+    <h3>Sign In Page</h3>
     @ViewBag.error
     <form method="post" asp-controller="account" asp-action="add">
         <table border="0" cellpadding="2" cellspacing="2">
             <tr>
-                <td>Username</td>
-                <td><input type="text" name="username"></td>
+                <td>Nombre y Apellidos</td>
+                <td><input type="text" name="nombre" /></td>
             </tr>
             <tr>
-                <td>Password</td>
-                <td><input type="password" name="password"></td>
+                <td>Username</td>
+                <td><input type="text" name="usuario"/></td>
+            </tr>
+            <tr>
+                <td>Contraseña</td>
+                <td><input type="password" name="contraseña"/></td>
+            </tr>
+            <tr>
+                <td>Correo</td>
+                <td><input type="text" name="correo" /></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="submit" value="Sign in"></td>
+                <td><input type="submit" value="Sign in"/></td>
             </tr>
         </table>
     </form>

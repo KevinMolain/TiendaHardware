@@ -58,11 +58,12 @@ namespace HardwareShop.Controllers
 
         [Route("add")]
         [HttpPost]
-        public IActionResult Add(Account nuevaCuenta)
+        public IActionResult Add(string nombre, string usuario, string contraseña, string correo)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
-            nuevaCuenta.Activado = 0;
+            int activado = 0;
+            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado);
             foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))
