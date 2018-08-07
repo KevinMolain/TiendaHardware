@@ -14,10 +14,10 @@ namespace HardwareShop.Controllers
     [Route("account")]
     public class AccountController : Controller
     {
-        [Route("index")]
+        [Route("Login")]
         public IActionResult Index()
         {
-            return View();
+            return View("Login");
         }
 
         [Route("login")]
@@ -59,7 +59,7 @@ namespace HardwareShop.Controllers
 
         public IActionResult Verify()
         {
-
+            return View("Index");
         }
 
         [Route("add")]
