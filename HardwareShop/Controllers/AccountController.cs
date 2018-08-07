@@ -14,10 +14,11 @@ namespace HardwareShop.Controllers
     [Route("account")]
     public class AccountController : Controller
     {
-        [Route("index")]
-        public IActionResult Index()
+        [Route("login")]
+        [HttpGet]
+        public IActionResult Login()
         {
-            return View();
+            return View("Login");
         }
 
         [Route("login")]
@@ -45,20 +46,20 @@ namespace HardwareShop.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
-            return RedirectToAction("Index");
+            return RedirectToAction("login");
         }
 
-        [Route("add")]
+        [Route("register")]
         [HttpGet]
         public IActionResult Add()
         {
-            return View("Add");
+            return View("register");
             
         }
 
-        [Route("add")]
+        [Route("register")]
         [HttpPost]
-        public IActionResult Add(string nombre, string usuario, string contraseña, string correo)
+        public IActionResult Add(string nombre, string correo, string usuario, string contraseña)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
@@ -69,7 +70,7 @@ namespace HardwareShop.Controllers
                 if ((nuevaCuenta.Usuario == a.Usuario))
                 {
                     ViewBag.error = "Ya existe ese nombre de usuario";
-                    return View("Add");
+                    return View("register");
                 }
             }
             // servidor SMTP
@@ -93,7 +94,7 @@ namespace HardwareShop.Controllers
         [HttpGet]
         public IActionResult Verify()
         {
-            return View("index");
+            return View("login");
         }
 
         [Route("remember")]
