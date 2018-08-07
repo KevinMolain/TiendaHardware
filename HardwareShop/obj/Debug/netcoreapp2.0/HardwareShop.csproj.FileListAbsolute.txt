@@ -14,9 +14,9 @@ C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\bin\Debug\netcorea
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\bin\Debug\netcoreapp2.0\HardwareShop.runtimeconfig.dev.json
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\bin\Debug\netcoreapp2.0\HardwareShop.dll
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\bin\Debug\netcoreapp2.0\HardwareShop.pdb
+C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.csprojAssemblyReference.cache
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.csproj.CoreCompileInputs.cache
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.AssemblyInfoInputs.cache
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.AssemblyInfo.cs
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.dll
 C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.pdb
-C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.csprojAssemblyReference.cache
