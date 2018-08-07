@@ -27,12 +27,12 @@ nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*-- end reset --*/
-body {
-    background: #333;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.58), rgba(255, 255, 255, 0.15));
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Roboto Condensed', sans-serif;
+body {   
+	background: #333;
+    
+	background-size:cover;
+	background-attachment: fixed; 
+	font-family: 'Roboto Condensed', sans-serif;
 }
 h1 {
     font-size: 3em;
@@ -105,11 +105,11 @@ input.email,input.text.w3lpass  {
 } 
 :-ms-input-placeholder {  
    color: #fff;  
-}
+} 
 input[type="submit"] {
-    font-size: .9em;
+    font-size:.9em;
     color: #fff;
-    background: #9d9d9d;
+    background: #ef5e7a;
     outline: none;
     border: 1px solid #ef5e7a;
     cursor: pointer;
