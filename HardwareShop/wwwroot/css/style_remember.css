@@ -31,7 +31,7 @@ img{max-width:100%;}
 /*--login start here--*/
  body{
    font-size: 100%;
-   background:#0086E5; 
+   background:#2F2F2F; 
    font-family: 'Roboto', sans-serif;
 }
 a {
@@ -54,21 +54,21 @@ a:hover {
 .element-main {
     width:27%;
     background: #fff;
-    margin:4em auto 0em;
+    margin:1em auto 0em;
     border-radius: 5px;
-    padding:3em 2em;
+    padding:1em 1em;
 }
 .element-main h1 {
     text-align: center;
-    font-size: 2.3em;
-    color:#0086E5;
+    font-size: 1.3em;
+    color:#696969;
     font-weight: 700;
 }
 .element-main p {
     font-size: 1em;
     color: #696969;
     line-height: 1.5em;
-    margin: 1.5em 0em;
+    margin: 0.5em 0em;
     text-align:center;
 }
 .element-main input[type="text"] {
@@ -85,7 +85,7 @@ a:hover {
 .element-main input[type="submit"] {
     font-size: 1em;
     color: #fff;
-    background:#0086E5;
+    background:#696969;
     width: 50%;
     padding: 0.8em 0em;
     outline: none;
