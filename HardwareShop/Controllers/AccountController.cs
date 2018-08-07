@@ -32,8 +32,7 @@ namespace HardwareShop.Controllers
                 if ((usuario == a.Usuario)&&(contrasena == a.Contraseña))
                 {
                     HttpContext.Session.SetString("usuario", usuario);
-                    return View("~/Home/Index");
-                    //HE PUESTO ESTA VISTA POR DEFECTO, PERO YA LA CAMBIAREMOS
+                    return View("../Home/Index");                    
                 }
             }
             ViewBag.error = "Usuario o contraseña incorrectos";
