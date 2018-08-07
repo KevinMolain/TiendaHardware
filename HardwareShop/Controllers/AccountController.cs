@@ -32,7 +32,7 @@ namespace HardwareShop.Controllers
                 if ((usuario == a.Usuario)&&(contrasena == a.Contraseña))
                 {
                     HttpContext.Session.SetString("usuario", usuario);
-                    return View("Success");
+                    return View("~/Home/Index");
                     //HE PUESTO ESTA VISTA POR DEFECTO, PERO YA LA CAMBIAREMOS
                 }
             }
@@ -57,18 +57,14 @@ namespace HardwareShop.Controllers
             
         }
 
-        public IActionResult Verify()
-        {
-
-        }
-
         [Route("add")]
         [HttpPost]
         public IActionResult Add(Account nuevaCuenta)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
-            foreach(Account a in listaUsuarios)
+            nuevaCuenta.Activado = 0;
+            foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))
                 {
@@ -76,9 +72,28 @@ namespace HardwareShop.Controllers
                     return View("Add");
                 }
             }
+            // servidor SMTP
+
+            //SmtpClient client = new SmtpClient("smtp.gmail.com");
+            //client.UseDefaultCredentials = false;
+            //client.Credentials = new NetworkCredential("hiberusclaseaspcoremvc@gmail.com", "111??aaa");
+            //client.EnableSsl = true;
+
+            //// 
+            //MailMessage mailMessage = new MailMessage();
+            //mailMessage.From = new MailAddress("hiberusclaseaspcoremvc@gmail.com");
+            //mailMessage.To.Add(nuevaCuenta.Correo);
+            //mailMessage.Body = "Hola, bienvenido a la mejor página web de la historia de España y parte de Norte América. Haz click en el siguiente enlace para verificar tu usuario" +
+            //    "<a href="http://localhost:puerto/account/idUsuario?=25&ticket=123456""
             db.SetAccount(nuevaCuenta);
-            return RedirectToAction("index");
-            //LO MISMO, ESTA VISTA HABRÁ QUE MODIFICARLA
+            return RedirectToAction("verify");
+        }
+
+        [Route("verify")]
+        [HttpGet]
+        public IActionResult Verify()
+        {
+            return View("index");
         }
 
         [Route("remember")]

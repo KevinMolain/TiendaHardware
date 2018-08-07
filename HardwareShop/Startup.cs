@@ -27,7 +27,7 @@ namespace HardwareShop
                                     .SetBasePath(System.IO.Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json");
             var configuration = builder.Build();
-            services.Add(new ServiceDescriptor(typeof(DataContextUsers), new DataContextUsers(configuration)));
+            services.Add(new ServiceDescriptor(typeof(DataContextUsers), new DataContextUsers(configuration["ConnectionStrings:DefaultConnection"])));
             services.AddSession();
         }
 

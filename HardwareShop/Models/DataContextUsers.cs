@@ -9,7 +9,7 @@ namespace HardwareShop.Models
 {
     public class DataContextUsers
     {
-        private IConfigurationRoot configuration;
+        //private IConfigurationRoot configuration;
 
         public string ConnectionString { get; set; }
 
@@ -18,10 +18,10 @@ namespace HardwareShop.Models
             this.ConnectionString = connectionString;
         }
 
-        public DataContextUsers(IConfigurationRoot configuration)
-        {
-            this.configuration = configuration;
-        }
+        //public DataContextUsers(IConfigurationRoot configuration)
+        //{
+        //    this.configuration = configuration;
+        //}
 
         private MySqlConnection GetConnection()
         {
@@ -41,13 +41,13 @@ namespace HardwareShop.Models
                 {
                     while (reader.Read())
                     {
-                        list.Add(new Account()
-                        {
-                            Id = reader.GetInt32("id"),
-                            Usuario = reader.GetString("usuario"),
-                            Contraseña = reader.GetString("contraseña")
-
-                        });
+                        int Id = reader.GetInt32("id");
+                        string Usuario = reader.GetString("usuario");
+                        string Contraseña = reader.GetString("contraseña");
+                        string Nombre = reader.GetString("nombre");
+                        string Correo = reader.GetString("correo");
+                        int Activado = reader.GetInt32("activado");
+                        list.Add(new Account(Nombre, Usuario, Id, Contraseña, Correo, Activado));
                     }
                 }
             }
