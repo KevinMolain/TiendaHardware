@@ -46,9 +46,10 @@
                         <input type="text" class="form-control input-sm" value=@item.Quantity>
                     </div>
                     <div class="col-xs-2 col-md-2">
-                        <button type="button" class="btn btn-outline-danger btn-xs">
+                        <a class="btn btn-outline-danger btn-xs"
+                            a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">
                             <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
+                           </a>
                     </div>
                 </div>
             </div>
