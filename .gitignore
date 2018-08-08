@@ -1,15 +1,7 @@
 
-<<<<<<< HEAD
-.vs/HardwareShop/v15/.suo
-.vs/HardwareShop/v15/Server/sqlite3/storage.ide-wal
-.vs/HardwareShop/v15/Server/sqlite3/storage.ide
-.vs/HardwareShop/v15/Server/sqlite3/db.lock
-.vs/HardwareShop/v15/Server/sqlite3/storage.ide-shm
-=======
 *.sqlite
 *.ide-wal
 *.ide-shm
 *.ide
 *.lock
 *.sqlite
->>>>>>> bffd4f7fd53a3b3ed818cc4f7707b62e376ce559
