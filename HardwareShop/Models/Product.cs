@@ -11,5 +11,6 @@ namespace HardwareShop.Models
         public string Nombre { get; set; }
         public double Precio { get; set; }
         public string Tipo { get; set; }
+        public string Foto { get; set; }
     }
 }

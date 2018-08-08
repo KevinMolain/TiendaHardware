@@ -27,6 +27,7 @@ namespace HardwareShop.Models
             Activado = activado;
             Random = random;
         }
+        public Account() { }
 
         [Required]
         public string Nombre { get; set; }
