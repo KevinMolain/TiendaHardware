@@ -21,7 +21,6 @@
             }
         });
     </script>
-
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -44,7 +43,7 @@
             <div class="item">
                 <img src="~/images/honor.jpg" alt="Visual Studio" class="img-responsive" />
                 <div class="carousel-caption" role="option">
-                    <p>                     
+                    <p>
                         <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
                             Saber más
                         </a>
@@ -83,38 +82,22 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-    <h1  align="center"  style="position:center;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-style:italic; font-size:85px">
-     Bienvenido a nuestra tienda
+    <h1 align="center" style="position:center;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-style:italic; font-size:85px">
+        Bienvenido a nuestra tienda
     </h1>
+    <div>
+        <h1 class="fa-align-center">Nuestros productos</h1>
+        @foreach (var product in Model)
+        {
 
-    <div class="row">
-        <div class="col-md-3">
-            <h2>Moviles</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Huawei</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Componentes</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">CPUs</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Gráficas</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Memorias RAM</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Almacenamiento</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Refrigeracion</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Perifericos</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-            </ul>
-        </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 column productbox">
+                <img src="~/productimages/@product.Imagen" class="img-responsive">
+                <div class="producttitle">@product.Nombre</div>
+                <div class="productprice"><div class="pull-right"><a asp-controller="Home" asp-action="añadir" asp-route-id="@product.Id" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">@product.Precio €</div></div>
+            </div>
+
+        }
     </div>
-
 </div>
 
 

@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <a class="btn btn-success pull-right"asp-controller="Checkout" asp-action="Checkout" asp-route-id=@Context.Session.GetInt32("logged")>Comprar</a>
+            <a class="btn btn-success pull-right" asp-controller="Checkout" asp-action="Checkout" asp-route-id=@Context.Session.GetInt32("logged") asp-route-usuario="@Context.Session.GetString("usuario")">Comprar</a>
             <div class="pull-right" style="margin: 5px">
                 Total: <b>@preciototal €</b>
             </div>
