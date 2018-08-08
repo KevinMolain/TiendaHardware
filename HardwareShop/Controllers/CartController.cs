@@ -30,7 +30,7 @@ namespace HardwareShop.Controllers
         }
 
         [Route("buy/{id}")]
-        public IActionResult Buy(string id)
+        public IActionResult Buy(int id)
         {
             DataContextProducts db = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
             List<Product> listaProductos = db.GetAllProducts();
@@ -58,7 +58,7 @@ namespace HardwareShop.Controllers
         }
 
         [Route("remove/{id}")]
-        public IActionResult Remove(string id)
+        public IActionResult Remove(int id)
         {
             List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             int index = isExist(id);
@@ -79,7 +79,7 @@ namespace HardwareShop.Controllers
             return RedirectToAction("Index");
         }
 
-        private int isExist(string id)
+        private int isExist(int id)
         {
             List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             for (int i = 0; i < cart.Count; i++)
