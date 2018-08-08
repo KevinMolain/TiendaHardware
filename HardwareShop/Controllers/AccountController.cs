@@ -30,21 +30,24 @@ namespace HardwareShop.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login(string usuario, string contrasena)
+        public IActionResult Login(string usuario, string contraseña)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
+            int SessionStatus = -1;
 
             foreach(Account a in listaUsuarios)
             {
-                if ((usuario == a.Usuario)&&(contrasena == a.Contraseña))
+                if ((usuario == a.Usuario)&&(contraseña == a.Contraseña))
                 {
                     HttpContext.Session.SetString("usuario", usuario);
+                    SessionStatus = 1;
+                    HttpContext.Session.SetInt32("logged", SessionStatus);
                     return View("../Home/Index");                    
                 }
             }
             ViewBag.error = "Usuario o contraseña incorrectos";
-            return View("Index");           
+            return View("Login");           
         }
 
 
@@ -53,6 +56,8 @@ namespace HardwareShop.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
+            int SessionStatus = 0;
+            HttpContext.Session.SetInt32("logged", SessionStatus);
             return RedirectToAction("login");
         }
 
@@ -71,7 +76,9 @@ namespace HardwareShop.Controllers
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
             int activado = 0;
-            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado);
+            Random rnd = new Random();
+            int random = rnd.Next(0, 9999999);
+            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random);
             foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))

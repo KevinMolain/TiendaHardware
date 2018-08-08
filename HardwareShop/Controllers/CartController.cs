@@ -20,34 +20,6 @@ namespace HardwareShop.Controllers
             return View(cart);
         }
 
-        [Route("buy/{id}")]
-        public IActionResult Buy(int id)
-        {
-            DataContextProducts db = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
-            List<Product> listaProductos = db.GetAllProducts();
-            if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart") == null)
-            {
-                List<Item> cart = new List<Item>();
-                cart.Add(new Item { Product = db.find(id,listaProductos), Quantity = 1 });
-                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
-            }
-            else
-            {
-                List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-                int index = isExist(id);
-                if (index != -1)
-                {
-                    cart[index].Quantity++;
-                }
-                else
-                {
-                    cart.Add(new Item { Product = db.find(id,listaProductos), Quantity = 1 });
-                }
-                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
-            }
-            return RedirectToAction("Index");
-        }
-
         [Route("remove/{id}")]
         public IActionResult Remove(int id)
         {
@@ -70,6 +42,18 @@ namespace HardwareShop.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("checkout")]
+        public IActionResult Checkout(int id)
+        {
+            if (id == 0)
+            {
+                return View("../Account/Login");
+            }
+            return View("Checkout");
+        }
+
+
+        //METODO AUXILIARRRRRRRR
         private int isExist(int id)
         {
             List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");

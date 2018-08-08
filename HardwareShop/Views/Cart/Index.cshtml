@@ -1,7 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@{
     Layout = null;
 }
-
+@Context.Session.GetInt32("logged");
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-    <h3>Cart Page</h3>
+    <h3>Cart Page @Context.Session.GetInt32("logged")</h3>
     <table cellpadding="2" cellspacing="2" border="1">
         <tr>
             <th>Option</th>
@@ -24,14 +25,14 @@
         @{double preciototal = 0.0; }
         @foreach (var item in Model)
         {
-            <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">Remove</a></td>
-                <td>@item.Product.Id</td>
-                <td>@item.Product.Nombre</td>
-                <td>@item.Product.Precio</td>
-                <td>@item.Quantity</td>
-                <td>@(item.Product.Precio * item.Quantity)</td>
-            </tr>
+        <tr>
+            <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">Remove</a></td>
+            <td>@item.Product.Id</td>
+            <td>@item.Product.Nombre</td>
+            <td>@item.Product.Precio</td>
+            <td>@item.Quantity</td>
+            <td>@(item.Product.Precio * item.Quantity)</td>
+        </tr>
             preciototal += item.Product.Precio * item.Quantity;
         }
         <tr>
@@ -40,9 +41,12 @@
                 @preciototal
             </td>
         </tr>
+
     </table>
     <br>
     <a asp-controller="Home" asp-action="index">Continue Shopping</a>
+    <br>
+    <a asp-controller="Cart" asp-action="Checkout" asp-route-id="@Context.Session.GetInt32("logged")">EL ACTO DE LA PAGACION VA A SUCEDER</a>
 
 </body>
 </html>
