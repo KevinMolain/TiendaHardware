@@ -1,48 +1,76 @@
 ﻿@{
+    ViewData["Title"] = "Carrito";
     Layout = null;
 }
 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+    <link rel="stylesheet" href="~/css/carrito.css" />
 </head>
 <body>
+    <style>
 
-    <h3>Cart Page</h3>
-    <table cellpadding="2" cellspacing="2" border="1">
-        <tr>
-            <th>Option</th>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Sub Total</th>
-        </tr>
+       
+    </style>
+    <div class="container"></div>
+    <div class="card">
+        <div class="card-header bg-dark text-light">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Carrito de la compra
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-info btn-sm pull-right">Seguir comprando</a>
+            <div class="clearfix"></div>
+        </div>
         @{double preciototal = 0.0; }
         @foreach (var item in Model)
         {
-            <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">Remove</a></td>
-                <td>@item.Product.Id</td>
-                <td>@item.Product.Nombre</td>
-                <td>@item.Product.Precio</td>
-                <td>@item.Quantity</td>
-                <td>@(item.Product.Precio * item.Quantity)</td>
-            </tr>
+            <div class="row">
+                <div class="col-xs-2 col-md-2">
+                    <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew">
+                </div>
+                <div class="col-xs-4 col-md-6">
+                    <h4 class="product-name"><strong>@item.Product.Nombre</strong></h4><h4><small>descripcion:buenisima compra</small></h4>
+                </div>
+                <div class="col-xs-6 col-md-4 row">
+                    <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                        <h6><strong>@item.Product.Precio <span class="text-muted">x</span></strong></h6>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <input type="text" class="form-control input-sm" value=@item.Quantity>
+                    </div>
+                    <div class="col-xs-2 col-md-2">
+                        <button type="button" class="btn btn-outline-danger btn-xs">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             preciototal += item.Product.Precio * item.Quantity;
         }
-        <tr>
-            <td align="right" colspan="6">Sum</td>
-            <td>
-                @preciototal
-            </td>
-        </tr>
-    </table>
-    <br>
-    <a asp-controller="Home" asp-action="index">Continue Shopping</a>
-
+        <br>
+        <div class="card-body">
+            <hr>
+            <hr>
+            <div class="pull-right">
+                <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary pull-right">Añadir más cosas</a>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success pull-right">Comprar</a>
+            <div class="pull-right" style="margin: 5px">
+                Total: <b>@preciototal €</b>
+            </div>
+        </div>
+    </div>
+    @ViewBag.preciototal=preciototal
 </body>
 </html>
+

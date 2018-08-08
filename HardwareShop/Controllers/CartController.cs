@@ -20,6 +20,15 @@ namespace HardwareShop.Controllers
             return View(cart);
         }
 
+        [Route("checkout")]
+        public IActionResult checkout()
+        {
+            var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            //ViewBag.cart = cart;
+            //ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
+            return View("checkout");
+        }
+
         [Route("buy/{id}")]
         public IActionResult Buy(int id)
         {
