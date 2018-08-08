@@ -28,6 +28,7 @@ namespace HardwareShop
                                     .AddJsonFile("appsettings.json");
             var configuration = builder.Build();
             services.Add(new ServiceDescriptor(typeof(DataContextUsers), new DataContextUsers(configuration["ConnectionStrings:DefaultConnection"])));
+            services.Add(new ServiceDescriptor(typeof(DataContextProducts), new DataContextProducts(configuration["ConnectionStrings:DefaultConnection"])));
             services.AddSession();
         }
 

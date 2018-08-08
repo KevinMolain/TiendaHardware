@@ -9,7 +9,7 @@ namespace HardwareShop.Models
 {
     public class DataContextProducts
     {
-        private IConfigurationRoot configuration;
+        //private IConfigurationRoot configuration;
 
         public string ConnectionString { get; set; }
 
@@ -18,10 +18,10 @@ namespace HardwareShop.Models
             this.ConnectionString = connectionString;
         }
 
-        public DataContextProducts(IConfigurationRoot configuration)
-        {
-            this.configuration = configuration;
-        }
+        //public DataContextProducts(IConfigurationRoot configuration)
+        //{
+        //    this.configuration = configuration;
+        //}
 
         private MySqlConnection GetConnection()
         {
@@ -36,7 +36,7 @@ namespace HardwareShop.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Product", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM productos", conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -53,7 +53,7 @@ namespace HardwareShop.Models
             }
             return list;
         }
-        public Product find(string id,List<Product> listaProductos)
+        public Product find(int id,List<Product> listaProductos)
         {
             return listaProductos.Single(p => p.Id.Equals(id));
         }
