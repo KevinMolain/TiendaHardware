@@ -11,6 +11,15 @@ namespace HardwareShop.Controllers
     [Route("cart")]
     public class CartController : Controller
     {
+        [Route("checkout")]
+        public IActionResult Checkout()
+        {
+            var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            //ViewBag.cart = cart;
+            //ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
+            return View("checkout");
+        }
+
         [Route("index")]
         public IActionResult Index()
         {
