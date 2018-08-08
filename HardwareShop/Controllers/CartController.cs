@@ -20,17 +20,6 @@ namespace HardwareShop.Controllers
             return View(cart);
         }
 
-<<<<<<< HEAD
-=======
-        [Route("checkout")]
-        public IActionResult checkout()
-        {
-            var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-            //ViewBag.cart = cart;
-            //ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
-            return View("checkout");
-        }
-
         [Route("buy/{id}")]
         public IActionResult Buy(int id)
         {
@@ -59,7 +48,7 @@ namespace HardwareShop.Controllers
             return RedirectToAction("Index");
         }
 
->>>>>>> Test
+
         [Route("remove/{id}")]
         public IActionResult Remove(int id)
         {
