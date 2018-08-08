@@ -2,11 +2,12 @@
     ViewData["Title"] = "Checkout";
     Layout = null;
 }
-
+﻿@using Microsoft.AspNetCore.Http;
+@Context.Session.GetInt32("logged");
 <!DOCTYPE html>
 
 
-    
+
 
 
 <html>
