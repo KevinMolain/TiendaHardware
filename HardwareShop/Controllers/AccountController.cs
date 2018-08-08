@@ -21,6 +21,13 @@ namespace HardwareShop.Controllers
             return View("Login");
         }
 
+        [Route("remember")]
+        [HttpGet]
+        public IActionResult remember()
+        {
+            return View("remember");
+        }
+
         [Route("login")]
         [HttpPost]
         public IActionResult Login(string usuario, string contrasena)
