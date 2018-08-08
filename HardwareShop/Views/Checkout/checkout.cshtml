@@ -5,11 +5,6 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @Context.Session.GetInt32("logged");
 <!DOCTYPE html>
-
-
-
-
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,13 +81,15 @@
         </div>
         <div class="col-25">
             <div class="container">
+                @{ Double preciototal = 0.0;}
                 <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+                @foreach (var item in Model.Items)
+                {
+                    <p><a>@item.Product.Nombre</a><a>@item.Quantity</a> <span class="price">@item.Product.Precio</span></p>
+                    preciototal += item.Quantity * item.Product.Precio;
+                }
                 <hr>
-                <p>Total <span class="price" style="color:black"><b>5000 €</b></span></p>
+                <p>Total <span class="price" style="color:black"><b>@preciototal €</b></span></p>
             </div>
         </div>
     </div>

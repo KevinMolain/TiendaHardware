@@ -26,7 +26,7 @@
             <div class="col-xs-4 col-md-4 col-lg-4 column productbox">
                 <img src="~/productimages/@product.Imagen" class="img-responsive">
                 <div class="producttitle">@product.Nombre</div>
-                <div class="productprice"><div class="pull-right"><a asp-controller="Componente" asp-action="añadir" asp-route-id="@product.Id" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">@product.Precio €</div></div>
+                <div class="productprice"><div class="pull-right"><a asp-controller="periferico" asp-action="añadir" asp-route-id="@product.Id" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">@product.Precio €</div></div>
             </div>
 
         }
