@@ -1,10 +1,14 @@
+
+﻿@using Microsoft.AspNetCore.Http;
+
 ﻿@{
     ViewData["Title"] = "Carrito";
     Layout = null;
 }
-
+@Context.Session.GetInt32("logged");
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,10 +20,6 @@
     <link rel="stylesheet" href="~/css/carrito.css" />
 </head>
 <body>
-    <style>
-
-       
-    </style>
     <div class="container"></div>
     <div class="card">
         <div class="card-header bg-dark text-light">
@@ -65,12 +65,14 @@
             </div>
         </div>
         <div class="card-footer">
-            <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success pull-right">Comprar</a>
+            <!--<a href="" class="btn btn-success pull-right">Comprar</a>-->
+            <a class="btn btn-success pull-right"asp-controller="Cart" asp-action="Checkout" asp-route-id=@Context.Session.GetInt32("logged")>Comprar</a>
             <div class="pull-right" style="margin: 5px">
                 Total: <b>@preciototal €</b>
             </div>
         </div>
     </div> 
+
 </body>
 </html>
 

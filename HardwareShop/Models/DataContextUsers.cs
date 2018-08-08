@@ -47,7 +47,8 @@ namespace HardwareShop.Models
                         string Nombre = reader.GetString("nombre");
                         string Correo = reader.GetString("correo");
                         int Activado = reader.GetInt32("activado");
-                        list.Add(new Account(Nombre, Usuario, Id, Contraseña, Correo, Activado));
+                        int Random = reader.GetInt32("random");
+                        list.Add(new Account(Nombre, Usuario, Id, Contraseña, Correo, Activado, Random));
                     }
                 }
             }
@@ -58,7 +59,7 @@ namespace HardwareShop.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO usuarios(`Usuario`,`Nombre`,`Correo`,`Contraseña`,`Activado`) VALUES ('{0}','{1}','{2}','{3}','{4}');",nuevaCuenta.Usuario,nuevaCuenta.Nombre,nuevaCuenta.Correo,nuevaCuenta.Contraseña,nuevaCuenta.Activado), conn);
+                MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO usuarios(`Usuario`,`Nombre`,`Correo`,`Contraseña`,`Activado`,`Random`) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');",nuevaCuenta.Usuario,nuevaCuenta.Nombre,nuevaCuenta.Correo,nuevaCuenta.Contraseña,nuevaCuenta.Activado,nuevaCuenta.Random), conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
