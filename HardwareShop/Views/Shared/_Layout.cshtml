@@ -1,9 +1,7 @@
-﻿
-
+﻿   ﻿@using Microsoft.AspNetCore.Http;
+<p hidden> @Context.Session.GetInt32("logged"); </p>
 <html>
 <head>
-    ﻿@using Microsoft.AspNetCore.Http;
-    @Context.Session.GetInt32("logged");
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HardwareShop</title>
@@ -50,7 +48,7 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("Index", "wish")"><span class="glyphicon glyphicon-heart" style="color:crimson"></span> WishList</a></li>
-                    <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"style="color:cornflowerblue"></span> Cuenta</a></li>
+                    <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user" style="color:cornflowerblue"></span> Cuenta</a></li>
                     <li><a href="@Url.Action("Index", "Cart")"><span class="glyphicon glyphicon-barcode" style="color:chartreuse"></span> Carrito</a></li>
                 </ul>
             </div>
