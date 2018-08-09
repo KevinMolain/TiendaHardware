@@ -1,13 +1,12 @@
 
 
+
 @media (min-width: 992px) {
     .container {
-        max-width: 100%;
+        max-width: 90%;
         max-height:100%;
     }
 }
-
-
 
 .quantity {
     float: left;

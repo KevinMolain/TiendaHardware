@@ -53,9 +53,48 @@ namespace HardwareShop.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Route("añadir2/{id}")]
+        public IActionResult Añadir2(int id)
+        {
+            DataContextProducts db = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
+            List<Product> listaProductos = db.GetAllProducts();
+            if (SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "wish") == null)
+            {
+                List<Item> wish = new List<Item>();
+                wish.Add(new Item { Product = db.find(id, listaProductos), Quantity = 1 });
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "wish", wish);
+            }
+            else
+            {
+                List<Item> wish = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "wish");
+                int index = isExist2(id);
+                if (index != -1)
+                {
+                    wish[index].Quantity++;
+                }
+                else
+                {
+                    wish.Add(new Item { Product = db.find(id, listaProductos), Quantity = 1 });
+                }
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "wish", wish);
+            }
+            return RedirectToAction("Index");
+        }
 
 
 
+        private int isExist2(int id)
+        {
+            List<Item> wish = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "wish");
+            for (int i = 0; i < wish.Count; i++)
+            {
+                if (wish[i].Product.Id.Equals(id))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
 
         // Metodo auxiliarisimo

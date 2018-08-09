@@ -9,7 +9,6 @@ namespace HardwareShop.Models
 {
     public class DataContextUsers
     {
-        //private IConfigurationRoot configuration;
 
         public string ConnectionString { get; set; }
 
@@ -17,11 +16,6 @@ namespace HardwareShop.Models
         {
             this.ConnectionString = connectionString;
         }
-
-        //public DataContextUsers(IConfigurationRoot configuration)
-        //{
-        //    this.configuration = configuration;
-        //}
 
         private MySqlConnection GetConnection()
         {
@@ -70,5 +64,6 @@ namespace HardwareShop.Models
                 }
             }
         }
+        
     }
 }
