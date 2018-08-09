@@ -12,5 +12,9 @@ namespace HardwareShop.Models
         public double Precio { get; set; }
         public string Tipo { get; set; }
         public string Imagen { get; set; }
+<<<<<<< HEAD
+=======
+        public string Descripcion { get; set; }
+>>>>>>> Test
     }
 }

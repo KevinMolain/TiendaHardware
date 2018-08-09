@@ -40,8 +40,14 @@ namespace HardwareShop.Models
                             Id = reader.GetInt32("id"),
                             Nombre = reader.GetString("nombre"),
                             Precio = reader.GetDouble("precio"),
+<<<<<<< HEAD
                             Tipo = reader.GetString("tipo"),
                             Imagen=reader.GetString("imagen")
+=======
+                            Tipo = reader.GetString("tipo"),                          
+                            Imagen=reader.GetString("imagen"),
+                            Descripcion=reader.GetString("descripcion")
+>>>>>>> Test
                         });
                     }
                 }
