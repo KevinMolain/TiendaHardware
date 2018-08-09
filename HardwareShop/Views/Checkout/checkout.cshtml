@@ -75,7 +75,8 @@
                     <label>
                         <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                     </label>
-                    <input type="submit" value="Continue to checkout" class="btn">
+                    <input type="hidden" value="@Model.Id" id="id" name="id"/>
+                    <input type="submit" value="Continue to checkout" class="btn" asp-controller="Checkout" asp-action="PDF">
                 </form>
             </div>
         </div>
