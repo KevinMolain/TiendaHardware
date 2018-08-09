@@ -16,9 +16,24 @@ namespace HardwareShop.Controllers
     {
         [Route("login")]
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(int id, string usuario)
         {
-            return View("Login");
+            DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
+            List<Account> listaUsuarios = db.GetAllAccounts();
+            Account perfil = new Account();
+            foreach(Account a in listaUsuarios)
+             {
+                if (usuario == a.Usuario)
+                {
+                    perfil = a;
+                }
+            }
+
+            if (id == 0)
+            {
+                return View("../Account/Login");
+            }
+            return View("Logged", model: perfil);
         }
 
         [Route("remember")]
@@ -73,14 +88,14 @@ namespace HardwareShop.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Add(string nombre, string correo, string usuario, string contraseña)
+        public IActionResult Add(string nombre, string correo, string usuario, string contraseña, string foto)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
             int activado = 0;
             Random rnd = new Random();
             int random = rnd.Next(0, 9999999);
-            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random);
+            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random, foto);
             foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))

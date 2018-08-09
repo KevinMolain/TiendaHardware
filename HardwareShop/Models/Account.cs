@@ -8,7 +8,7 @@ namespace HardwareShop.Models
 {
     public class Account
     {
-        public Account(string nombre, string usuario, int id, string contraseña, string correo, int activado, int random)
+        public Account(string nombre, string usuario, int id, string contraseña, string correo, int activado, int random,string foto)
         {
             Nombre = nombre;
             Usuario = usuario;
@@ -17,8 +17,9 @@ namespace HardwareShop.Models
             Correo = correo;
             Activado = activado;
             Random = random;
+            Foto = foto;
         }
-        public Account(string nombre, string usuario, string contraseña, string correo, int activado, int random)
+        public Account(string nombre, string usuario, string contraseña, string correo, int activado, int random, string foto)
         {
             Nombre = nombre;
             Usuario = usuario;
@@ -26,6 +27,7 @@ namespace HardwareShop.Models
             Correo = correo;
             Activado = activado;
             Random = random;
+            Foto = foto;
         }
         public Account() { }
 
@@ -45,5 +47,6 @@ namespace HardwareShop.Models
         public string Correo { get; set; }
         public int Activado { get; set; }
         public int Random { get; set; }
+        public string Foto { get; set; }
     }
 }
