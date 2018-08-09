@@ -17,10 +17,16 @@ namespace HardwareShop.Controllers
         public IActionResult Index()
         {
             var wish = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "wish");
-            //ViewBag.wish = wish;
-            //ViewBag.total = wish.Sum(item => item.Product.Price * item.Quantity);
-            return View(wish);
+            if (wish == null)
+            {
+                return View("../Wish/Empty");
+            }
+            else
+            {
+                return View(wish);
+            }
         }
+       
 
         [Route("buy/{id}")]
         public IActionResult Buy(int id)

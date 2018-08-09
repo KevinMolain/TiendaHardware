@@ -14,10 +14,19 @@ namespace HardwareShop.Controllers
         [Route("index")]
         public IActionResult Index()
         {
+            
             var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            if (cart == null)
+            {                
+                return View("../Cart/Empty");
+            }
+            else
+            {
+                return View(cart);
+            }
             //ViewBag.cart = cart;
             //ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
-            return View(cart);
+            
         }
 
         [Route("buy/{id}")]
