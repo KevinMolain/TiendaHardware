@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿   ﻿@using Microsoft.AspNetCore.Http;
+<p hidden> @Context.Session.GetInt32("logged"); </p>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,10 +31,10 @@
                 <span style="font-size:30px;cursor:pointer; color:azure" onclick="openNav()">&#9776; </span>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-user"></span>Cuenta</a></li>
+                <li><a asp-controller="Account" asp-action="Login" asp-route-id=@Context.Session.GetInt32("logged") asp-route-usuario="@Context.Session.GetString("usuario")"><span class="glyphicon glyphicon-user" style="color:cornflowerblue"></span> Cuenta</a></li>
             </ul>
-           </div>
-    </nav>   
+        </div>
+    </nav>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
         function openNav() {
