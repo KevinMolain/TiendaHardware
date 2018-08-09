@@ -51,3 +51,4 @@ C:\Users\Escobar\Documents\GitHub\TiendaHardware\HardwareShop\HardwareShop\obj\D
 C:\Users\Escobar\Documents\GitHub\TiendaHardware\HardwareShop\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.AssemblyInfo.cs
 C:\Users\Escobar\Documents\GitHub\TiendaHardware\HardwareShop\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.dll
 C:\Users\Escobar\Documents\GitHub\TiendaHardware\HardwareShop\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.pdb
+C:\Users\usuario\Documents\GitHub\TiendaHardware\HardwareShop\obj\Debug\netcoreapp2.0\HardwareShop.csprojAssemblyReference.cache
