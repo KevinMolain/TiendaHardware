@@ -43,10 +43,12 @@ namespace HardwareShop.Controllers
                     HttpContext.Session.SetString("usuario", usuario);
                     SessionStatus = 1;
                     HttpContext.Session.SetInt32("logged", SessionStatus);
-                    return View("../Home/Index");                    
+                    DataContextProducts db2 = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
+                    List<Product> listaProductos = db2.GetAllProducts();
+                    return View("../Home/Index", model: listaProductos);                    
                 }
             }
-            ViewBag.error = "Usuario o contraseña incorrectos";
+            ViewBag.error = "Usuario o contraseña incorrectos";                     
             return View("Login");           
         }
 

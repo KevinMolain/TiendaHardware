@@ -5,7 +5,7 @@
     ViewData["Title"] = "Carrito";
     Layout = null;
 }
-<p hidden> @Context.Session.GetInt32("logged"); </p>
+@Context.Session.GetInt32("logged");
 
 <!DOCTYPE html>
 
@@ -17,18 +17,31 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://use.fontawesome.com/c560c025cf.js"></script>
-    <link rel="stylesheet" href="~/css/carrito.css" />
+    <link rel="stylesheet" href="~/css/wishlist.css" />
 </head>
 <body>
+    <style>
+        .bg-dark {
+            background-color: #dc3545 !important;
+        }
+        .badge-success {
+            color: #fff;
+            background-color: #007bff !important;
+        }
+        .btn-outline-info {
+            color: #f8f9fa;
+            background-color: #dc3545;
+            background-image: none;
+            border-color: #f8f9fa;
+        }
+    </style>
     <div class="container"></div>
     <div class="card">
         <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true">  </i>
-                          Carrito de la compra
+            <i class="fa fa-heart" aria-hidden="true"></i> <h2>Tu lista de deseos</h2>           
             <a href="@Url.Action("Index", "Home")" class="btn btn-outline-info btn-sm pull-right">Seguir comprando</a>
             <div class="clearfix"></div>
-        </div>
-        @{double preciototal = 0.0; }
+        </div>       
         @foreach (var item in Model)
         {
             <div class="row">
@@ -41,33 +54,30 @@
                 <div class="col-xs-6 col-md-4 row">
                     <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
                         <h6><strong>@item.Product.Precio <span class="text-muted">x</span></strong></h6>
-                    </div>
-                    <div class="col-xs-4 col-md-4">
-                        <input type="text" class="form-control input-sm" value=@item.Quantity>
-                    </div>
-                    <div class="col-xs-2 col-md-2">
+                    </div>                  
+                    <div class="col-xs-3 col-md-3">
                         <a class="btn btn-outline-danger btn-xs"
-                            a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">
+                           a asp-controller="wish" asp-action="remove" asp-route-id="@item.Product.Id">
                             <i class="fa fa-trash" aria-hidden="true"></i>
-                           </a>
+                        </a>
+                        <a class="btn btn-primary"
+                           a asp-controller="wish" asp-action="añadir" asp-route-id="@item.Product.Id">
+                            <i class="badge-success" aria-hidden="true">Añadir al carrito</i>
+                        </a>
                     </div>
                 </div>
-            </div>
-
-            preciototal += item.Product.Precio * item.Quantity;
+            </div>           
         }
         <br>
         <div class="card-body">
             <hr>
             <hr>
             <div class="pull-right">
-                <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary pull-right">Añadir más cosas</a>
+                <a href="@Url.Action("Index", "Cart")" class="btn btn-outline-secondary pull-right">Ver el carrito</a>
             </div>
         </div>
-        <div class="card-footer">
-            <a class="btn btn-success pull-right" asp-controller="Checkout" asp-action="Checkout" asp-route-id=@Context.Session.GetInt32("logged") asp-route-usuario="@Context.Session.GetString("usuario")">Comprar</a>
-            <div class="pull-right" style="margin: 5px">
-                Total: <b>@preciototal €</b>
+        <div class="card-footer">            
+            <div class="pull-right" style="margin: 5px">              
             </div>
         </div>
     </div> 

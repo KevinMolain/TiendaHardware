@@ -42,6 +42,7 @@ h1 {
     text-transform: capitalize;
     letter-spacing: 4px;
     font-family: 'Roboto Condensed', sans-serif;
+    padding-top: 100px;
 }
 /*-- main --*/ 
 .main-w3layouts {
