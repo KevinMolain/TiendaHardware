@@ -2,10 +2,10 @@
 ﻿@using Microsoft.AspNetCore.Http;
 
 ﻿@{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "Wishlist";
     Layout = null;
 }
-@Context.Session.GetInt32("logged");
+<p hidden>@Context.Session.GetInt32("logged")</p>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://use.fontawesome.com/c560c025cf.js"></script>
-    <link rel="stylesheet" href="~/css/wishlist.css" />
+    <link rel="stylesheet" href="~/css/wishlist.css" />  
+
 </head>
 <body>
     <style>
@@ -34,11 +35,14 @@
             background-image: none;
             border-color: #f8f9fa;
         }
+        body {
+            margin: 7px; 
+            font-size: 1.3rem;
     </style>
     <div class="container"></div>
     <div class="card">
         <div class="card-header bg-dark text-light">
-            <i class="fa fa-heart" aria-hidden="true"></i> <h2>Tu lista de deseos</h2>           
+            <h2> ♥  Tu lista de deseos  </h2>     
             <a href="@Url.Action("Index", "Home")" class="btn btn-outline-info btn-sm pull-right">Seguir comprando</a>
             <div class="clearfix"></div>
         </div>       
