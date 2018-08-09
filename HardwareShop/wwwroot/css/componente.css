@@ -21,3 +21,9 @@
     font-weight: bold;
     font-size: 1.4em;
 }
+
+
+.modal-dialog {
+    width: 900px !important;
+    margin: 30px auto;
+}

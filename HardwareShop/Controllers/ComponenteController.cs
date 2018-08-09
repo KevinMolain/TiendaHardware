@@ -56,8 +56,28 @@ namespace HardwareShop.Controllers
             return RedirectToAction("Index");
         }
 
+       /* [Route("mostrar")]
+        public IActionResult mostrar(int id)
+        {
+            DataContextProducts db = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
+            Product product2 = new Product();
+            List<Product> listaProductos = db.GetAllProducts();           
+            foreach (Product p in listaProductos)
+            {
+                if (p.Id.Equals(id))
+                {
+                    product2 = p;
+                    break;
+                    //COMPONENTES ES UNA LISTA DE PRODUCTOS Y TU LA TRATAS COMO LISTA DE ITEMS MELON
+                }
+            }
 
+            ViewBag.mostrarimagen = product2.Imagen;
+            ViewBag.mostrarid = product2.Id;
 
+            return View("Index");
+        }
+        */
 
 
         // Metodo auxiliarisimo
