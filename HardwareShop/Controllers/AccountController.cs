@@ -50,7 +50,7 @@ namespace HardwareShop.Controllers
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
             int SessionStatus = -1;
-            int Administrador = -1;
+
             foreach(Account a in listaUsuarios)
             {
                 if ((usuario == a.Usuario)&&(contraseña == a.Contraseña))
@@ -58,10 +58,7 @@ namespace HardwareShop.Controllers
                     HttpContext.Session.SetString("usuario", usuario);
                     SessionStatus = 1;
                     HttpContext.Session.SetInt32("logged", SessionStatus);
-                    if(a.Administrador == 1)
-                    {
-                        HttpContext.Session.SetInt32("administrador", Administrador);
-                    }
+                    HttpContext.Session.SetInt32("administrador", a.Administrador);
                     DataContextProducts db2 = HttpContext.RequestServices.GetService(typeof(DataContextProducts)) as DataContextProducts;
                     List<Product> listaProductos = db2.GetAllProducts();
                     return View("../Home/Index", model: listaProductos);                    
@@ -92,19 +89,17 @@ namespace HardwareShop.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Add(string nombre, string correo, string usuario, string contraseña, string foto, int administrador)
+        public IActionResult Add(string nombre, string correo, string usuario, string contraseña, string foto)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
             int activado = 0;
             Random rnd = new Random();
             int random = rnd.Next(0, 9999999);
-<<<<<<< HEAD
-            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random, foto, administrador);
-=======
+
             int Administrador = 0;
             Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random, foto,Administrador);
->>>>>>> Test
+
             foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))

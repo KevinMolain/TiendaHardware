@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <a asp-controller="Admin" asp-action="Index" asp-route-admin=@Context.Session.GetInt32("logged") data-original-title ="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i>Admin area</a>
+                        <a asp-controller="Admin" asp-action="Index" asp-route-admin=@Context.Session.GetInt32("administrador") data-original-title ="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i>Admin area</a>
                         <span class="pull-right">
                             <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>

@@ -16,7 +16,11 @@ namespace HardwareShop.Controllers
             {
                 return View("NoAdmin");
             }
-            return View("Index");
+            else
+            {
+                return View("Index");
+            }
+           
         }
     }
 }
