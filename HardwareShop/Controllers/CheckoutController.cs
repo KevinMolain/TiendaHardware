@@ -110,14 +110,15 @@ namespace HardwareShop.Controllers
             clVentas.BorderWidthBottom = 0.75f;
 
             PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", _standardFont));
-            clVentas.BorderWidth = 0;
-            clVentas.BorderWidthBottom = 0.75f;
+            clCantidad.BorderWidth = 0;
+            clCantidad.BorderWidthBottom = 0.75f;
 
             // Añadimos las celdas a la tabla
             tblPrueba.AddCell(clNombre);
             tblPrueba.AddCell(clCorreo);
             tblPrueba.AddCell(clVentas);
             tblPrueba.AddCell(clCantidad);
+
 
             // Cambiamos el tipo de Font para el listado
             _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL, BaseColor.BLUE);
@@ -128,8 +129,15 @@ namespace HardwareShop.Controllers
             clCorreo = new PdfPCell(new Phrase(FacturaActual.Account.Correo, _standardFont));
             clCorreo.BorderWidth = 0;
             tblPrueba.AddCell(clCorreo);
+
             foreach (Item i in FacturaActual.Items)
             {
+                clNombre = new PdfPCell(new Phrase(""));
+                clNombre.BorderWidth = 0;
+                tblPrueba.AddCell(clNombre);
+                clCorreo = new PdfPCell(new Phrase(""));
+                clCorreo.BorderWidth = 0;
+                tblPrueba.AddCell(clCorreo);
                 clVentas = new PdfPCell(new Phrase(i.Product.Nombre, _standardFont));
                 clVentas.BorderWidth = 0;
                 tblPrueba.AddCell(clVentas);
