@@ -8,7 +8,11 @@ namespace HardwareShop.Models
 {
     public class Account
     {
+<<<<<<< HEAD
+        public Account(string nombre, string usuario, int id, string contraseña, string correo, int activado, int random,string foto,int administrador)
+=======
         public Account(string nombre, string usuario, int id, string contraseña, string correo, int activado, int random,string foto, int administrador)
+>>>>>>> Test
         {
             Nombre = nombre;
             Usuario = usuario;
@@ -18,7 +22,11 @@ namespace HardwareShop.Models
             Activado = activado;
             Random = random;
             Foto = foto;
+<<<<<<< HEAD
+            Administrador=administrador;
+=======
             Administrador = administrador;
+>>>>>>> Test
         }
         public Account(string nombre, string usuario, string contraseña, string correo, int activado, int random, string foto,int administrador)
         {

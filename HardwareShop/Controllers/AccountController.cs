@@ -92,15 +92,19 @@ namespace HardwareShop.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Add(string nombre, string correo, string usuario, string contraseña, string foto)
+        public IActionResult Add(string nombre, string correo, string usuario, string contraseña, string foto, int administrador)
         {
             DataContextUsers db = HttpContext.RequestServices.GetService(typeof(DataContextUsers)) as DataContextUsers;
             List<Account> listaUsuarios = db.GetAllAccounts();
             int activado = 0;
             Random rnd = new Random();
             int random = rnd.Next(0, 9999999);
+<<<<<<< HEAD
+            Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random, foto, administrador);
+=======
             int Administrador = 0;
             Account nuevaCuenta = new Account(nombre, usuario, contraseña, correo, activado, random, foto,Administrador);
+>>>>>>> Test
             foreach (Account a in listaUsuarios)
             {
                 if ((nuevaCuenta.Usuario == a.Usuario))
