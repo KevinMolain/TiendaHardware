@@ -43,9 +43,9 @@ namespace HardwareShop.Models
         public Factura GetFactura(int id)
         {
             Factura Factura_Actual = new Factura();
-            DataContextProducts dbp = new DataContextProducts("server=127.0.0.1;port=3306;database=pk;user=admin;password=1111");
+            DataContextProducts dbp = new DataContextProducts("server=192.168.254.6;port=3306;database=pk;user=admin;password=1111");
             List<Product> listaProductos = dbp.GetAllProducts();
-            DataContextUsers dbu = new DataContextUsers("server=127.0.0.1;port=3306;database=pk;user=admin;password=1111");
+            DataContextUsers dbu = new DataContextUsers("server=192.168.254.6;port=3306;database=pk;user=admin;password=1111");
             List<Account> listaUsuarios = dbu.GetAllAccounts();
             List<Item> Items = new List<Item>();
             int Id_Factura = 0;

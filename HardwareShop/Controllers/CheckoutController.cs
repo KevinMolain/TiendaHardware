@@ -41,7 +41,7 @@ namespace HardwareShop.Controllers
                     factura.Account = a;
                 }
             }
-            DataContextFactura dbf = new DataContextFactura("server=127.0.0.1;port=3306;database=pk;user=admin;password=1111");
+            DataContextFactura dbf = new DataContextFactura("server=192.168.254.6;port=3306;database=pk;user=admin;password=1111");
             factura.Id = dbf.SetFactura(factura);
             return View("Checkout", model: factura);
         }
@@ -52,7 +52,7 @@ namespace HardwareShop.Controllers
             int id = 0;
 
             id = int.Parse(Request.Query["id"].ToString());
-            DataContextFactura dbf = new DataContextFactura("server=127.0.0.1;port=3306;database=pk;user=admin;password=1111");
+            DataContextFactura dbf = new DataContextFactura("server=192.168.254.6;port=3306;database=pk;user=admin;password=1111");
             Factura FacturaActual = dbf.GetFactura(id);
 
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
@@ -188,7 +188,7 @@ namespace HardwareShop.Controllers
                 client.Send(mailMessage);
             }
             catch (Exception e) { output = e.ToString() + "no enviado"; }
-            return View("../Finito/Index");
+            return View("../Finito/Index",model:FacturaActual);
         }
     }
 }
