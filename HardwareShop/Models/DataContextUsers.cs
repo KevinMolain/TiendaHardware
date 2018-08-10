@@ -43,7 +43,8 @@ namespace HardwareShop.Models
                         int Activado = reader.GetInt32("activado");
                         int Random = reader.GetInt32("random");
                         string Foto = reader.GetString("Foto");
-                        list.Add(new Account(Nombre, Usuario, Id, Contraseña, Correo, Activado, Random,Foto));
+                        int Administrador = reader.GetInt32("Administrador");
+                        list.Add(new Account(Nombre, Usuario, Id, Contraseña, Correo, Activado, Random,Foto,Administrador));
                     }
                 }
             }
